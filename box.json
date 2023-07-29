@@ -1,0 +1,18 @@
+{
+    "name":"Preside Todo",
+    "version":"1.0.0",
+    "author":"",
+    "slug":"Preside Todo",
+    "createPackageDirectory":false,
+    "private":true,
+    "dependencies":{
+        "presidecms":"^10.24.10+0012211",
+        "preside-ext-launcher":"^1.0.7+0000014",
+        "preside-ext-alt-admin-theme":"^1.0.0+0000063"
+    },
+    "installPaths":{
+        "presidecms":"preside/",
+        "preside-ext-launcher":"application/extensions/preside-ext-launcher/",
+        "preside-ext-alt-admin-theme":"application/extensions/preside-ext-alt-admin-theme/"
+    }
+}
