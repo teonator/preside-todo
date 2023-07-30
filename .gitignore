@@ -1,2 +1,5 @@
 /preside
 /application/extensions/*
+logs
+server.json
+.cfconfig.json
