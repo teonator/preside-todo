@@ -52,8 +52,7 @@ component extends="preside.system.config.Config" {
 	}
 
 	private void function _setupRicheditor() {
-		settings.ckeditor.defaults.stylesheets.append( "css-bootstrap" );
-		settings.ckeditor.defaults.stylesheets.append( "css-layout" );
+		settings.ckeditor.defaults.stylesheets.append( "bootstrap-css" );
 
 		// see: https://docs.preside.org/devguides/workingwiththericheditor.html
 		// for much more configurability
