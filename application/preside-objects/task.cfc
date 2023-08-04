@@ -1,5 +1,6 @@
 /**
  * @dataManagerEnabled true
+ * @dataManagerGroup   todo
  */
 component {
 
