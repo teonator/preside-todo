@@ -4,19 +4,10 @@
 component {
 
 	public void function configure( bundle ) {
+		bundle.addAsset( id="bootstrap-css", url="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" );
+		bundle.addAsset( id="bootstrap-js" , url="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" );
 
-		bundle.addAssets(
-			  directory   = "/"
-			, match       = function( filepath ){ return ReFindNoCase( "\.(js|css)$", filepath ); }
-			, idGenerator = function( filepath ){
-				var fileName = ListLast( filePath, "/" );
-				var id       = ListLast( filename, "." ) & "-" & ReReplace( filename, "\.(js|css)$", "" );
-				return id;
-			  }
-		);
-
-		bundle.asset( "css-bootstrap" ).before( "*" );
-		bundle.asset( "js-bootstrap" ).dependsOn( "js-jquery" );
+		bundle.addAsset( id="fontawesome-css", url="https://use.fontawesome.com/releases/v5.15.4/css/all.css" );
 	}
 
 }
