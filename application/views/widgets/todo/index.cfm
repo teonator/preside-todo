@@ -18,7 +18,7 @@
 				<div class="card">
 					<div class="card-body p-5">
 
-						<form>
+						<form action="#event.buildLink( linkTo="Todo.addTaskAction" )#" method="post">
 							#renderForm(
 								  formName            = "task"
 								, formId              = "task"
