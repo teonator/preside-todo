@@ -20,6 +20,5 @@
 
 <cfoutput>
 	<input type="text" id="#inputId#" placeholder="#placeholder#" name="#inputName#" value="#value#" class="#inputClass# form-control" tabindex="#getNextTabIndex()#"<cfif isNumeric( maxlength ) and maxlength gt 0> maxlength="#maxlength#"</cfif> <cfif isNumeric( minlength ) and minlength gt 0> minlength="#minlength#"</cfif><cfif !isEmptyString( autocomplete )> autocomplete="#autocomplete#"</cfif><cfif disabled> disabled</cfif>>
-	<button type="submit" disabled class="d-none">Prevent form submit from enter</button>
-	<button class="btn btn-primary"><i class="fas fa-plus"></i></button>
+	<button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i></button>
 </cfoutput>
