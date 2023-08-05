@@ -4,7 +4,8 @@ component {
 
 		args.tasks = getPresideObject( "task" ).selectData(
 			selectFields = [
-				"label"
+				  "id"
+				, "label"
 			]
 		);
 

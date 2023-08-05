@@ -15,4 +15,12 @@ component {
 		setNextEvent( url=cgi.http_referer );
 	}
 
+	public function deleteTaskAction( event, rc, prc, args={} ) {
+		var taskId = rc.id ?: "";
+
+		getPresideObject( "task" ).deleteData( id=taskId );
+
+		setNextEvent( url=cgi.http_referer );
+	}
+
 }

@@ -40,7 +40,7 @@
 									</a>
 									<p class="flex-grow-1 mb-0 text-secondary">#label#</p>
 
-									<a class="btn btn-sm text-danger" href="">
+									<a class="btn btn-sm text-danger" href="#event.buildLink( linkTo="Todo.deleteTaskAction", queryString="id=#id#" )#">
 										<i class="fas fa-trash"></i>
 									</a>
 								</div>
