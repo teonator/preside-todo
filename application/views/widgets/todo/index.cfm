@@ -35,10 +35,10 @@
 						<div class="list-group mt-3">
 							<cfloop query="tasks">
 								<div class="list-group-item list-group-item-action d-flex align-items-center">
-									<a class="btn btn-sm me-2 btn-outline-secondary" href="">
-										<i class="fas fa-check text-white"></i>
+									<a class="btn btn-sm me-2 btn-outline-secondary #( done ? "btn-outline-success" : "btn-outline-secondary" )#" href="#event.buildLink( linkTo="Todo.editTaskAction", queryString="id=#id#&done=#( !done )#" )#">
+										<i class="fas fa-check #( done ? "" : "text-white" )#"></i>
 									</a>
-									<p class="flex-grow-1 mb-0 text-secondary">#label#</p>
+									<p class="flex-grow-1 mb-0 text-secondary #( done ? "text-decoration-line-through" : "" )#">#label#</p>
 
 									<a class="btn btn-sm text-danger" href="#event.buildLink( linkTo="Todo.deleteTaskAction", queryString="id=#id#" )#">
 										<i class="fas fa-trash"></i>
