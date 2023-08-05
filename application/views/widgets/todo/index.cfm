@@ -18,6 +18,16 @@
 				<div class="card">
 					<div class="card-body p-5">
 
+						<form>
+							#renderForm(
+								  formName            = "task"
+								, formId              = "task"
+								, context             = "website"
+								, fieldLayout         = "formcontrols.layouts.taskField"
+								, includeValidationJs = false
+							)#
+						</form>
+
 						<div class="d-flex align-items-center mt-4">
 							<h4 class="flex-fill m-0">Tasks</h4>
 						</div>
