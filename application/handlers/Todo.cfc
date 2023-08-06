@@ -31,24 +31,19 @@ component {
 		);
 	}
 
-	public function deleteTaskAction( event, rc, prc, args={} ) {
-		var taskId = rc.id ?: "";
-
-		getPresideObject( "task" ).deleteData( id=taskId );
-
-		setNextEvent( url=cgi.http_referer );
-	}
-
 	public function editTaskAction( event, rc, prc, args={} ) {
 		var taskId   = rc.id   ?: "";
 		var taskDone = rc.done ?: false;
 
-		getPresideObject('task').updateData(
-			  id   = taskId
-			, data = {
-				done = taskDone
-			}
-		);
+		todoService.editTask( id=taskId, done=taskDone );
+
+		setNextEvent( url=cgi.http_referer );
+	}
+
+	public function deleteTaskAction( event, rc, prc, args={} ) {
+		var taskId = rc.id ?: "";
+
+		getPresideObject( "task" ).deleteData( id=taskId );
 
 		setNextEvent( url=cgi.http_referer );
 	}

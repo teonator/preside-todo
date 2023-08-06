@@ -21,7 +21,7 @@
 				break;
 		}
 
-		var result = $getPresideObject('task').selectData(
+		var result = $getPresideObject( "task" ).selectData(
 			  selectFields = [
 				  "id"
 				, "label"
@@ -34,7 +34,7 @@
 	}
 
 	public string function addTask( required string label ) {
-		return $getPresideObject('task').insertData(
+		return $getPresideObject( "task" ).insertData(
 			data = {
 				  label = arguments.label
 				, done  = false
@@ -42,6 +42,14 @@
 		);
 	}
 
+	public numeric function editTask( required string  id, required boolean done ) {
+		return $getPresideObject( "task" ).updateData(
+			  id   = arguments.id
+			, data = {
+				done = arguments.done
+			}
+		);
+	}
 
 
 }
