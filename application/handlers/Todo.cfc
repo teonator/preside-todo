@@ -1,30 +1,12 @@
 component {
 
 	property name="validationEngine" inject="ValidationEngine";
+	property name="todoService"      inject="TodoService";
 
 	variables.formName = "task";
 
 	public function index( event, rc, prc, args={} ) {
-		var filter = {};
-
-		switch ( rc.filter ?: "" ) {
-			case "pending":
-				filter = { done=false };
-				break;
-
-			case "done":
-				filter = { done=true };
-				break;
-		}
-
-		args.tasks = getPresideObject( "task" ).selectData(
-			  selectFields = [
-				  "id"
-				, "label"
-				, "done"
-			  ]
-			, filter       = filter
-		);
+		args.tasks = todoService.getTasks( filter=( rc.filter ?: "" ) );
 
 		args.formName         = variables.formName;
 		args.validationResult = rc.validationResult ?: validationEngine.newValidationResult();
