@@ -4,6 +4,7 @@
 	savedData        = args.savedData        ?: {};
 
 	errors = validationResult.getMessages();
+	pageId = event.getCurrentPageId();
 </cfscript>
 
 <cfoutput>
@@ -44,6 +45,24 @@
 
 						<div class="d-flex align-items-center mt-4">
 							<h4 class="flex-fill m-0">Tasks</h4>
+
+							<ul class="nav nav-underline flex-fill justify-content-end">
+								<li class="nav-item">
+									<a class="nav-link" href="">
+										All
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="">
+										Pending
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="">
+										Done
+									</a>
+								</li>
+							</ul>
 						</div>
 
 						<div class="list-group mt-3">
