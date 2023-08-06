@@ -33,5 +33,15 @@
 		return result;
 	}
 
+	public string function addTask( required string label ) {
+		return $getPresideObject('task').insertData(
+			data = {
+				  label = arguments.label
+				, done  = false
+			}
+		);
+	}
+
+
 
 }

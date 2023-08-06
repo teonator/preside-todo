@@ -19,12 +19,7 @@ component {
 		var validationResult = validateForm( formName=variables.formName, formData=formData );
 
 		if ( validationResult.validated() ) {
-			var taskId = getPresideObject( "task" ).insertData(
-				data = {
-					  label = formData.task ?: ""
-					, status = false
-				}
-			);
+			var taskId = todoService.addTask( formData.task );
 		}
 
 		setNextEvent(
