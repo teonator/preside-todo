@@ -26,6 +26,7 @@ component {
 			, filter       = filter
 		);
 
+		args.formName         = variables.formName;
 		args.validationResult = rc.validationResult ?: validationEngine.newValidationResult();
 
 		return renderView( view="todo/index", args=args );

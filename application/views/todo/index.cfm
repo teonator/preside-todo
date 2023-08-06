@@ -1,10 +1,14 @@
 <cfscript>
-	tasks            = args.tasks            ?: QueryNew( "" );
+	formName         = args.formName         ?: "";
 	validationResult = args.validationResult ?: "";
 	savedData        = args.savedData        ?: {};
 
+	tasks = args.tasks ?: QueryNew( "" );
+
 	errors = validationResult.getMessages();
 	pageId = event.getCurrentPageId();
+
+	filter = rc.filter ?: "";
 </cfscript>
 
 <cfoutput>
@@ -25,8 +29,8 @@
 
 						<form action="#event.buildLink( linkTo="Todo.addTaskAction" )#" method="post">
 							#renderForm(
-								  formName            = "task"
-								, formId              = "task"
+								  formName            = formName
+								, formId              = formName
 								, context             = "website"
 								, fieldLayout         = "formcontrols.layouts.taskField"
 								, savedData           = savedData
@@ -48,17 +52,17 @@
 
 							<ul class="nav nav-underline flex-fill justify-content-end">
 								<li class="nav-item">
-									<a class="nav-link" href="#event.buildLink( page=pageId )#">
+									<a class="nav-link #( filter == "" ? "active" : "" )#" href="#event.buildLink( page=pageId )#">
 										All
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#event.buildLink( page=pageId, queryString="filter=pending" )#">
+									<a class="nav-link #( filter == "pending" ? "active" : "" )#" href="#event.buildLink( page=pageId, queryString="filter=pending" )#">
 										Pending
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#event.buildLink( page=pageId, queryString="filter=done" )#">
+									<a class="nav-link #( filter == "done" ? "active" : "" )#" href="#event.buildLink( page=pageId, queryString="filter=done" )#">
 										Done
 									</a>
 								</li>
