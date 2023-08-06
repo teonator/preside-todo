@@ -5,17 +5,30 @@ component {
 	variables.formName = "task";
 
 	public function index( event, rc, prc, args={} ) {
+		var filter = {};
+
+		switch ( rc.filter ?: "" ) {
+			case "pending":
+				filter = { done=false };
+				break;
+
+			case "done":
+				filter = { done=true };
+				break;
+		}
+
 		args.tasks = getPresideObject( "task" ).selectData(
-			selectFields = [
+			  selectFields = [
 				  "id"
 				, "label"
 				, "done"
-			]
+			  ]
+			, filter       = filter
 		);
 
 		args.validationResult = rc.validationResult ?: validationEngine.newValidationResult();
 
-		return renderView( view="widgets/todo/index", args=args );
+		return renderView( view="todo/index", args=args );
 	}
 
 	public function addTaskAction( event, rc, prc, args={} ) {

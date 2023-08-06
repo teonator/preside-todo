@@ -48,17 +48,17 @@
 
 							<ul class="nav nav-underline flex-fill justify-content-end">
 								<li class="nav-item">
-									<a class="nav-link" href="">
+									<a class="nav-link" href="#event.buildLink( page=pageId )#">
 										All
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="">
+									<a class="nav-link" href="#event.buildLink( page=pageId, queryString="filter=pending" )#">
 										Pending
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="">
+									<a class="nav-link" href="#event.buildLink( page=pageId, queryString="filter=done" )#">
 										Done
 									</a>
 								</li>
