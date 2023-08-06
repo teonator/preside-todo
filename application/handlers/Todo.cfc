@@ -1,6 +1,22 @@
 component {
 
+	property name="validationEngine" inject="ValidationEngine";
+
 	variables.formName = "task";
+
+	public function index( event, rc, prc, args={} ) {
+		args.tasks = getPresideObject( "task" ).selectData(
+			selectFields = [
+				  "id"
+				, "label"
+				, "done"
+			]
+		);
+
+		args.validationResult = rc.validationResult ?: validationEngine.newValidationResult();
+
+		return renderView( view="widgets/todo/index", args=args );
+	}
 
 	public function addTaskAction( event, rc, prc, args={} ) {
 		var formData         = event.getCollectionForForm( formName=variables.formName );

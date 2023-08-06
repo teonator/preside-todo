@@ -1,19 +1,12 @@
 component {
 
-	property name="validationEngine" inject="ValidationEngine";
-
 	private function index( event, rc, prc, args={} ) {
-		args.tasks = getPresideObject( "task" ).selectData(
-			selectFields = [
-				  "id"
-				, "label"
-				, "done"
-			]
+		return runEvent(
+			  event          = "Todo.index"
+			, prepostExempt  = true
+			, private        = true
+			, eventArguments = {}
 		);
-
-		args.validationResult = rc.validationResult ?: validationEngine.newValidationResult();
-
-		return renderView( view="widgets/todo/index", args=args );
 	}
 
 }
