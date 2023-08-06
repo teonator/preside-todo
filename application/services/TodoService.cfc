@@ -51,5 +51,8 @@
 		);
 	}
 
+	public numeric function deleteTask( required string id ) {
+		return $getPresideObject( "task" ).deleteData( id=arguments.id );
+	}
 
 }

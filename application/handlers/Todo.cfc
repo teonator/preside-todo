@@ -43,7 +43,7 @@ component {
 	public function deleteTaskAction( event, rc, prc, args={} ) {
 		var taskId = rc.id ?: "";
 
-		getPresideObject( "task" ).deleteData( id=taskId );
+		todoService.deleteTask( id=taskId );
 
 		setNextEvent( url=cgi.http_referer );
 	}
