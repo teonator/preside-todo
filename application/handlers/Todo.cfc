@@ -1,18 +1,27 @@
 component {
 
+	variables.formName = "task";
+
 	public function addTaskAction( event, rc, prc, args={} ) {
-		var formData = event.getCollectionForForm( "task" );
+		var formData         = event.getCollectionForForm( formName=variables.formName );
+		var validationResult = validateForm( formName=variables.formName, formData=formData );
 
-		var task = formData.task ?: "";
+		if ( validationResult.validated() ) {
+			var taskId = getPresideObject( "task" ).insertData(
+				data = {
+					  label = formData.task ?: ""
+					, status = false
+				}
+			);
+		}
 
-		var taskId = getPresideObject( "task" ).insertData(
-			data = {
-				  label = task
-				, status = false
+		setNextEvent(
+			  url           = cgi.http_referer
+			, persistStruct = {
+				  validationResult = validationResult
+				, savedData        = formData
 			}
 		);
-
-		setNextEvent( url=cgi.http_referer );
 	}
 
 	public function deleteTaskAction( event, rc, prc, args={} ) {

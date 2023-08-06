@@ -1,5 +1,9 @@
 <cfscript>
-	tasks = args.tasks ?: QueryNew( "" );
+	tasks            = args.tasks            ?: QueryNew( "" );
+	validationResult = args.validationResult ?: "";
+	savedData        = args.savedData        ?: {};
+
+	errors = validationResult.getMessages();
 </cfscript>
 
 <cfoutput>
@@ -24,9 +28,19 @@
 								, formId              = "task"
 								, context             = "website"
 								, fieldLayout         = "formcontrols.layouts.taskField"
+								, savedData           = savedData
+								, validationResult    = validationResult
 								, includeValidationJs = false
 							)#
 						</form>
+
+						<cfif StructCount( errors )>
+							<div>
+								 <cfloop collection="#errors#" item="field">
+									<span class="text-danger">#translateResource( uri=errors[ field ].message, data=errors[ field ].params )#</span>
+								</cfloop>
+							</div>
+						</cfif>
 
 						<div class="d-flex align-items-center mt-4">
 							<h4 class="flex-fill m-0">Tasks</h4>

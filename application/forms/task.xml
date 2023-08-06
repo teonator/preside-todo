@@ -2,7 +2,7 @@
 <form>
 	<tab id="default">
 		<fieldset id="default" sortorder="10" class="d-flex mb-1">
-			<field name="task" control="taskInput" placeholder="New task..." class="me-2" />
+			<field name="task" control="taskInput" placeholder="New task..." class="me-2" label="Task" required="true" />
 		</fieldset>
 	</tab>
 </form>
