@@ -8,7 +8,10 @@
 		return this;
 	}
 
-	public query function getTasks( string filterType="" ) {
+	public any function getTasks(
+		  string  filterType = ""
+		, boolean taskCount  = false
+	) {
 		var filter = {};
 
 		switch ( arguments.filterType ) {
@@ -21,16 +24,19 @@
 				break;
 		}
 
-		var result = $getPresideObject( "task" ).selectData(
-			  selectFields = [
+		return $getPresideObject( "task" ).selectData(
+			  selectFields    = [
 				  "id"
 				, "label"
 				, "done"
 			]
-			, filter       = filter
+			, filter          = filter
+			, recordCountOnly = arguments.taskCount
 		);
+	}
 
-		return result;
+	public numeric function getTaskCount( string filterType="" ) {
+		return getTasks( argumentCollection=arguments, taskCount=true );
 	}
 
 	public string function addTask( required string label ) {

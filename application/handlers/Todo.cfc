@@ -11,6 +11,10 @@ component {
 		args.formName         = variables.formName;
 		args.validationResult = rc.validationResult ?: validationEngine.newValidationResult();
 
+		args.all     = todoService.getTaskCount();
+		args.pending = todoService.getTaskCount( filterType="pending" );
+		args.done    = todoService.getTaskCount( filterType="done" );
+
 		return renderView( view="todo/index", args=args );
 	}
 

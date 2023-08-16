@@ -5,6 +5,10 @@
 
 	tasks = args.tasks ?: QueryNew( "" );
 
+	all     = args.all     ?: 0;
+	pending = args.pending ?: 0;
+	done    = args.done    ?: 0;
+
 	errors = validationResult.getMessages();
 	pageId = event.getCurrentPageId();
 
@@ -53,17 +57,17 @@
 							<ul class="nav nav-underline flex-fill justify-content-end">
 								<li class="nav-item">
 									<a class="nav-link #( filter == "" ? "active" : "" )#" href="#event.buildLink( page=pageId )#">
-										All
+										All (#all#)
 									</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link #( filter == "pending" ? "active" : "" )#" href="#event.buildLink( page=pageId, queryString="filter=pending" )#">
-										Pending
+										Pending (#pending#)
 									</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link #( filter == "done" ? "active" : "" )#" href="#event.buildLink( page=pageId, queryString="filter=done" )#">
-										Done
+										Done (#done#)
 									</a>
 								</li>
 							</ul>
