@@ -6,7 +6,7 @@ component {
 	variables.formName = "task";
 
 	public function index( event, rc, prc, args={} ) {
-		args.tasks = todoService.getTasks( filter=( rc.filter ?: "" ) );
+		args.tasks = todoService.getTasks( filterType=( rc.filter ?: "" ) );
 
 		args.formName         = variables.formName;
 		args.validationResult = rc.validationResult ?: validationEngine.newValidationResult();
